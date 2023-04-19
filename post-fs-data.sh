@@ -11,6 +11,9 @@ for i in $(ls /data/adb/modules); do
     MODULE_LIST="$i $MODULE_LIST"
 done
 
+rm -rf "/cache/magic_mount.log.bak"
+mv -f "/cache/magic_mount.log" "/cache/magic_mount.log.bak"
+
 magic_mount(){
     local part="/$1"
     if [ ! -d "$part" ] || [ -L "$part" ]; then
@@ -20,7 +23,7 @@ magic_mount(){
     for i in $MODULE_LIST; do
         [ -d "/data/adb/modules/$i/$1" ] && list="/data/adb/modules/$i/$1 $list"
     done
-    [ ! -z "$list" ] && "$MAGIC_MOUNT" -r $list "$part" "$part"
+    [ ! -z "$list" ] && "$MAGIC_MOUNT" -rf "/cache/magic_mount.log" $list "$part" "$part"
 }
 
 cd / || exit
