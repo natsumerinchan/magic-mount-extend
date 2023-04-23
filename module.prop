@@ -1,6 +1,6 @@
 id=magic-mount-extend
 name=Magic mount extend
-version=v3.0
-versionCode=3
+version=v3.1
+versionCode=4
 author=HuskyDG
 description=A simple module that enable ability for modules to magic mount more partitions such as /odm /odm_dlkm /vendor_dlkm ...
